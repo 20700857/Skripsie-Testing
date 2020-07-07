@@ -35,6 +35,8 @@ public class Main {
         pathPlanning.startSearch();
         pathPlanning.populateNodes();
 
+        CarController controller = new CarController(map1);
+
         inputs.put('p', false);
         InputHandling input = new InputHandling(frame, inputs);
 
