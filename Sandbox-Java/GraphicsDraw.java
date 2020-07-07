@@ -141,8 +141,8 @@ public class GraphicsDraw extends JPanel {
 
         int[] centre = new int[2];
         int[] dimensions = new int[2];
-        dimensions[0] = (int) (getWidth() * 0.9 / map1.columns);
-        dimensions[1] = (int) (getHeight() * 0.9 / map1.rows);
+        dimensions[0] = (int) (getWidth() * 0.7 / map1.columns);
+        dimensions[1] = (int) (getHeight() * 0.7 / map1.rows);
         centre[0] = (int) (((float) pos[0] / (float) map1.columns) * getWidth()) - dimensions[0]/2;
         centre[1] = (int) (((float) pos[1] / (float) map1.columns) * getHeight()) - dimensions[1]/2;
 

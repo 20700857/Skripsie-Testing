@@ -17,6 +17,17 @@ public class Map {
 
     }
 
+    public void reset(){
+
+        path.clear();
+        for (int i = 0; i < gridMap.length; i++) {
+            for (int j = 0; j < gridMap[i].length; j++) {
+                gridMap[i][j].checked = false;
+            }
+        }
+
+    }
+
     private void instantiateMap(){
         for (int i = 0; i < gridMap.length; i++) {
             for (int j = 0; j < gridMap[i].length; j++) {

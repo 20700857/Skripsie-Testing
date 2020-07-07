@@ -13,6 +13,17 @@ public class Car {
         force[1] = 0;
     }
 
+    public void reset(){
+        acceleration[0] = 0;
+        acceleration[1] = 0;
+
+        velocity[0] = 0;
+        velocity[1] = 0;
+
+        position[0] = 0;
+        position[1] = 0;
+    }
+
     public void update(){
 
         acceleration[0] = force[0]/mass;
@@ -26,8 +37,8 @@ public class Car {
         force[0] = 0;
         force[1] = 0;
 
-        velocity[0] = (float)(velocity[0]*0.95);
-        velocity[1] = (float)(velocity[1]*0.95);
+        velocity[0] = (float)(velocity[0]*0.9);
+        velocity[1] = (float)(velocity[1]*0.9);
 
     }
 

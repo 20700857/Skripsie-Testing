@@ -11,7 +11,7 @@ public class AStar {
 
     static GraphicsDraw graphics;
 
-    // Creating an empty HashMap 
+    // Creating an empty HashMap
     HashMap<String, int[]> directions = new HashMap<String, int[]>();
 
     Map map1;
@@ -24,7 +24,7 @@ public class AStar {
     MapNode currentNode;
     String temp;
 
-    public AStar(Map map1, int[] start, int[] goal, GraphicsDraw graphics){
+    public AStar(Map map1, int[] start, int[] goal, GraphicsDraw graphics) {
 
         this.goal = goal;
         this.map1 = map1;
@@ -39,24 +39,29 @@ public class AStar {
         openNodes.add(map1.gridMap[start[0]][start[1]]);
 
         // instantiate direction hashmap
-        directions.put("UP",new int[]{0,-1});
-        directions.put("RIGHT", new int[]{1,0});
-        directions.put("DOWN",new int[]{0,1});
-        directions.put("LEFT", new int[]{-1,0});
+        directions.put("UP", new int[] { 0, -1 });
+        directions.put("RIGHT", new int[] { 1, 0 });
+        directions.put("DOWN", new int[] { 0, 1 });
+        directions.put("LEFT", new int[] { -1, 0 });
 
     }
 
-    public void startSearch(){
+    public void startSearch() {
 
         currentNode = openNodes.getLast();
     }
 
-    public void populateNodes() throws InterruptedException {
-
+    public void populateNodes() {
 
         while (pathFound == false) {
             graphics.updateGraphics();
             iterateNode();
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
 
         }
 
