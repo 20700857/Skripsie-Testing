@@ -31,7 +31,7 @@ public class Car {
 
     }
 
-    public void Force(float[] force){
+    public void force(float[] force){
 
         this.force = force;
     }

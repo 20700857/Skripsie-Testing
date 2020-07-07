@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.ResourceBundle.Control;
 
 public class Main {
 
@@ -16,7 +17,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Started");
 
-        car1 = new Car(5, new int[] { 25, 25 });
+        car1 = new Car(5, new int[] { 0, 0 });
         map1 = new Map(new int[] { 50, 50 });
         BoundsCreator bounds = new BoundsCreator(map1);
         bounds.boundsCreate(new int[] { 10, 10 }, new int[] { 40, 40 });
@@ -35,7 +36,7 @@ public class Main {
         pathPlanning.startSearch();
         pathPlanning.populateNodes();
 
-        CarController controller = new CarController(map1);
+        CarController controller = new CarController(map1, car1);
 
         inputs.put('p', false);
         InputHandling input = new InputHandling(frame, inputs);
@@ -66,28 +67,28 @@ public class Main {
         System.out.println("gameTicked");
         if (inputs.get('w') != null) {
             if (inputs.get('w')) {
-                car1.Force(new float[]{0,-1}); 
+                car1.force(new float[]{0,-1}); 
             }
         }
 
         if (inputs.get('s') != null) {
             if (inputs.get('s')) {
-                car1.Force(new float[]{0,1});  
+                car1.force(new float[]{0,1});  
             }
         }
 
         if (inputs.get('a') != null) {
             if (inputs.get('a')) {
-                car1.Force(new float[]{-1,0});  
+                car1.force(new float[]{-1,0});  
             }
         }
 
         if (inputs.get('d') != null) {
             if (inputs.get('d')) {
-                car1.Force(new float[]{1,0}); 
+                car1.force(new float[]{1,0}); 
             }
         }
-
+        //controller.update();
         car1.update();
 
     }
