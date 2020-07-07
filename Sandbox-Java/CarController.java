@@ -5,6 +5,7 @@ public class CarController {
     public CarController(Map map1){
 
         this.map1 = map1;
+        
     }
     
 }

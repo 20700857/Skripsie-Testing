@@ -26,6 +26,9 @@ public class Car {
         force[0] = 0;
         force[1] = 0;
 
+        velocity[0] = (float)(velocity[0]*0.95);
+        velocity[1] = (float)(velocity[1]*0.95);
+
     }
 
     public void Force(float[] force){
