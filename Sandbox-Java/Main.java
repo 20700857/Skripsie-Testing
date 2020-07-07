@@ -1,6 +1,7 @@
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.lang.ModuleLayer.Controller;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -13,6 +14,7 @@ public class Main {
     static HashMap<Character, Boolean> inputs = new HashMap<>();
     static Car car1;
     static Map map1;
+    static CarController controller;
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Started");
@@ -36,7 +38,7 @@ public class Main {
         pathPlanning.startSearch();
         pathPlanning.populateNodes();
 
-        CarController controller = new CarController(map1, car1);
+        controller = new CarController(map1, car1);
 
         inputs.put('p', false);
         InputHandling input = new InputHandling(frame, inputs);
@@ -49,7 +51,7 @@ public class Main {
 
             };
         };
-        gameTicks.scheduleAtFixedRate(gameTicksTask, 500, 100);
+        gameTicks.scheduleAtFixedRate(gameTicksTask, 500, 10);
 
         Timer graphicsTicks = new Timer();
         TimerTask graphicsTicksTask = new TimerTask() {
@@ -64,7 +66,6 @@ public class Main {
     }
 
     private static void gameTick() {
-        System.out.println("gameTicked");
         if (inputs.get('w') != null) {
             if (inputs.get('w')) {
                 car1.force(new float[]{0,-1}); 
@@ -90,6 +91,7 @@ public class Main {
         }
         //controller.update();
         car1.update();
+        controller.pController();
 
     }
 

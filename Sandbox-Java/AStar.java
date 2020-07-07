@@ -1,6 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Deque;
 import java.util.HashMap;
 
@@ -65,6 +66,8 @@ public class AStar {
             path.add(currentNode.pos);
             currentNode = currentNode.prior;
         }
+
+        Collections.reverse(path);
 
         map1.path = path;
 
