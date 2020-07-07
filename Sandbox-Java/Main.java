@@ -33,7 +33,7 @@ public class Main {
 
         AStar pathPlanning = new AStar(map1, new int[] { 0, 0 }, new int[] { 49, 49 }, graphics);
         pathPlanning.startSearch();
-        pathPlanning.iterateNode();
+        pathPlanning.populateNodes();
 
         inputs.put('p', false);
         InputHandling input = new InputHandling(frame, inputs);
